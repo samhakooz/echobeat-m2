@@ -29,3 +29,24 @@ while True:
 
 print("\nYour recorded rhythm:")
 print(events)
+
+
+print("\nEchoBeat is replaying your rhythm!")
+
+playback_start = time.perf_counter()
+
+for timestamp, drum in events:
+    target_time = playback_start + timestamp / 1000
+    wait_time = target_time - time.perf_counter()
+
+    if wait_time > 0:
+        time.sleep(wait_time)
+    
+    if drum == "L":
+        print("LEFT DRUM!")
+    elif drum == "R":
+        print("RIGHT DRUM!")
+
+print("\nPlayback complete!")
+
+
