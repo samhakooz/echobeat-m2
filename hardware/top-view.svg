@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 540" width="650" height="540">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#25364d;font-size:15px}.small{font-size:12px}.dim{stroke:#7b8797;stroke-width:1.4;fill:none}.arm{stroke:#cc5c3b;stroke-width:8;stroke-linecap:round}.outline{stroke:#203754;stroke-width:2;fill:#eaf0f7}</style>
+<text x="36" y="35" font-size="23" font-weight="bold">EchoBeat M2 — top view, target layout (mm)</text>
+<!-- 230 x 190 scaled 1.75 -->
+<rect x="123" y="80" width="402.5" height="332.5" rx="9" class="outline"/>
+<text x="325" y="103" text-anchor="middle" class="small">REAR (+Y)</text>
+<!-- pad centers x±56: 325 +/-98; y=-30 => center 246.25 +52.5 =298.75  -->
+<circle cx="227" cy="299" r="51" fill="#c7def2" stroke="#335879" stroke-width="2"/>
+<circle cx="423" cy="299" r="51" fill="#eddcbf" stroke="#755e47" stroke-width="2"/>
+<text x="227" y="304" text-anchor="middle">LEFT PAD</text><text x="423" y="304" text-anchor="middle">RIGHT PAD</text>
+<!-- motor axes y40 => 246.25-70 = 176.25 -->
+<rect x="202" y="153" width="50" height="43" rx="5" fill="#58708e"/>
+<rect x="398" y="153" width="50" height="43" rx="5" fill="#58708e"/>
+<circle cx="227" cy="176" r="8" fill="white" stroke="#203754" stroke-width="2"/>
+<circle cx="423" cy="176" r="8" fill="white" stroke="#203754" stroke-width="2"/>
+<line x1="227" y1="176" x2="227" y2="299" class="arm"/>
+<line x1="423" y1="176" x2="423" y2="299" class="arm"/>
+<text x="325" y="165" text-anchor="middle" class="small">Servo shafts</text>
+<!-- buttons y-75 => 246.25+131.25=377.5 -->
+<circle cx="227" cy="379" r="13" fill="#cbdee8" stroke="#335879" stroke-width="2"/>
+<circle cx="325" cy="379" r="13" fill="#d1e8d6" stroke="#476451" stroke-width="2"/>
+<circle cx="423" cy="379" r="13" fill="#ebcfca" stroke="#80504e" stroke-width="2"/>
+<text x="227" y="404" text-anchor="middle" class="small">L INPUT</text>
+<text x="325" y="404" text-anchor="middle" class="small">REC/PLAY</text>
+<text x="423" y="404" text-anchor="middle" class="small">R INPUT</text>
+<line x1="123" y1="455" x2="525.5" y2="455" class="dim"/><path d="M123 447v16m402.5-16v16" class="dim"/>
+<text x="324" y="476" text-anchor="middle">230 mm width</text>
+<line x1="570" y1="80" x2="570" y2="412.5" class="dim"/><path d="M562 80h16m-16 332.5h16" class="dim"/>
+<text x="586" y="255" transform="rotate(90 586 255)" text-anchor="middle">190 mm depth</text>
+<text x="36" y="508" class="small">Coordinates / tolerances: see docs/design-spec.md. Diagram is not a scale manufacturing drawing.</text>
+</svg>
