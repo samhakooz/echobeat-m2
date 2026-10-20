@@ -1,6 +1,10 @@
 
+import json
+from pathlib import Path
 import tkinter as tk
 import time
+
+SAVE_FILE = Path(__file__).with_name("rhythm.json")
 
 # Store our robot's rhythm
 events = []
@@ -11,7 +15,7 @@ first_hit = None
 # Create the window
 root = tk.Tk()
 root.title("EchoBeat M2")
-root.geometry("440x320")
+root.geometry("440x370")
 root.configure(bg="#171b24")
 
 
@@ -99,6 +103,33 @@ def playback():
 
     root.after(events[-1][0] + 300, playback_done)
 
+def save_rhythm():
+    if not events:
+        status.config(text="No rhythm to save!")
+        return
+
+    with open(SAVE_FILE, "w") as file:
+        json.dump(events, file, indent=4)
+
+    status.config(text="Rhythm saved!")
+
+
+def load_rhythm():
+    global events, recording
+
+    if playing:
+        return
+
+    try:
+        with open(SAVE_FILE, "r") as file:
+            loaded = json.load(file)
+
+        events = [(int(t), d) for t, d in loaded]
+        recording = False
+        status.config(text=f"Loaded {len(events)} hits!")
+
+    except (FileNotFoundError, ValueError, TypeError):
+        status.config(text="No valid saved rhythm found!")
 
 # Title
 title = tk.Label(
@@ -147,6 +178,22 @@ tk.Button(
     command=playback
 ).pack(side="left", padx=5)
 
+# Save and load controls
+save_controls = tk.Frame(root, bg="#171b24")
+save_controls.pack(pady=5)
+
+tk.Button(
+    save_controls,
+    text="Save Rhythm",
+    command=save_rhythm
+).pack(side="left", padx=5)
+
+tk.Button(
+    save_controls,
+    text="Load Rhythm",
+    command=load_rhythm
+).pack(side="left", padx=5)
+
 status = tk.Label(
     root, text="Ready to play",
     fg="white", bg="#171b24"
@@ -158,3 +205,4 @@ root.bind("<KeyPress-a>", lambda e: hit("L"))
 root.bind("<KeyPress-l>", lambda e: hit("R"))
 
 root.mainloop()
+
